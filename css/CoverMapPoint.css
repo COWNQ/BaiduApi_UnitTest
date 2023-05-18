@@ -64,13 +64,14 @@ body,
 }
 
 .quantity_border {
-    position: relative;
+  position: relative;
   display: flex;
-  width: 131px;
-  height: 172px;
+  width: 183px;
+  height: 241px;
   margin: -174px 0 0 33px;
   float: right;
   margin-right: 2%;
+  margin-top: 26%;
   background-color: #ffffff;
   border: 2px solid #d7d7d7;
   border-radius: 8px;
@@ -79,11 +80,14 @@ body,
 .left_quantityname {
   display: flex;
   width: 100%;
-  margin: 20px 0 0 20px;
+  height: 13%;
+  margin: 112px 0 0 12px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
+
 
 [v-cloak] {
   display: none;
