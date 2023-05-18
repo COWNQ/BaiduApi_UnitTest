@@ -173,53 +173,38 @@
   let point = new BMap.Point(116.034115, 38.937576);
   map.centerAndZoom(point, 11); // 初始化地图，设置中心点坐标和地图级别
   map.enableScrollWheelZoom(); // 允许滚轮缩放
-  let size_twenty = 80;
-  let size_thirty = 150;
-  let size_fifty = 220;
-
-  let myIcon_twenty = new BMap.Icon(
-    "/images/数字20.png",
-    new BMap.Size(size_twenty, size_twenty),
-    {
-      anchor: new BMap.Size(size_twenty / 1.6, size_twenty / 2.4), // 设置图标的中心点
-      imageSize: new BMap.Size(size_twenty, size_twenty),
-    } // 设置图标的尺寸
-  );
-  let myIcon_thirty = new BMap.Icon(
-    "/images/数字30.png",
-    new BMap.Size(size_thirty, size_thirty),
-    {
-      anchor: new BMap.Size(size_thirty / 1.6, size_thirty / 2.4), // 设置图标的中心点
-      imageSize: new BMap.Size(size_thirty, size_thirty),
-    } // 设置图标的尺寸
-  );
-  let myIcon_fifty = new BMap.Icon(
-    "/images/数字50.png",
-    new BMap.Size(size_fifty, size_fifty),
-    {
-      anchor: new BMap.Size(size_fifty / 1.6, size_fifty / 2.4), // 设置图标的中心点
-      imageSize: new BMap.Size(size_fifty, size_fifty),
-    } // 设置图标的尺寸
-  );
-
-  for (let i = 0; i < imagepoints.length; i++) {
-    let pt = new BMap.Point(imagepoints[i].lng, imagepoints[i].lat);
-    let cover_size = imagepoints[i].coversize;
-    let marker = new BMap.Marker(pt, {
-      // icon: myIcon_fifty,
-      icon: if_coversize(cover_size),
-    });
-    // 在地图上添加点标记
-    map.addOverlay(marker);
-
-    function goto(e) {
-      window.open("Pointinfo.html");
-    }
-    marker.addEventListener("click", goto);
-  }
-
-  //判断
+  let LavelMap = [];
+  let LavelTwoMap = [];
+  //覆盖物自定义
   function if_coversize(cover_size) {
+    let size_twenty = 80;
+    let size_thirty = 150;
+    let size_fifty = 220;
+
+    let myIcon_twenty = new BMap.Icon(
+      "/images/数字20.png",
+      new BMap.Size(size_twenty, size_twenty),
+      {
+        anchor: new BMap.Size(size_twenty / 1.6, size_twenty / 2.4), // 设置图标的中心点
+        imageSize: new BMap.Size(size_twenty, size_twenty),
+      } // 设置图标的尺寸
+    );
+    let myIcon_thirty = new BMap.Icon(
+      "/images/数字30.png",
+      new BMap.Size(size_thirty, size_thirty),
+      {
+        anchor: new BMap.Size(size_thirty / 1.6, size_thirty / 2.4), // 设置图标的中心点
+        imageSize: new BMap.Size(size_thirty, size_thirty),
+      } // 设置图标的尺寸
+    );
+    let myIcon_fifty = new BMap.Icon(
+      "/images/数字50.png",
+      new BMap.Size(size_fifty, size_fifty),
+      {
+        anchor: new BMap.Size(size_fifty / 1.6, size_fifty / 2.4), // 设置图标的中心点
+        imageSize: new BMap.Size(size_fifty, size_fifty),
+      } // 设置图标的尺寸
+    );
     switch (cover_size) {
       case 20:
         return myIcon_twenty;
@@ -234,9 +219,86 @@
         break;
     }
   }
-  // 添加多边形
+  // 地区轮廓添加
   let xionanborder = polygon;
   map.addOverlay(xionanborder);
+
+  //一级点位显示
+  function add_LavelOne_coverPointMap() {
+    for (let i = 0; i < imagepoints.length; i++) {
+      let pt = new BMap.Point(imagepoints[i].lng, imagepoints[i].lat);
+      let cover_size = imagepoints[i].coversize;
+      let marker = new BMap.Marker(pt, {
+        // icon: myIcon_fifty,
+        icon: if_coversize(cover_size),
+      });
+      // 在地图上添加点标记
+      LavelMap.push(marker);
+      console.log(typeof marker);
+      map.addOverlay(marker);
+
+      function goto(e) {
+        window.open("Pointinfo.html");
+      }
+      marker.addEventListener("click", goto);
+    }
+  }
+  add_LavelOne_coverPointMap();
+  function delete_LevalMap() {
+    for (let i = 0; i < LavelMap.length; i++) {
+      let point = LavelMap[i];
+      map.removeOverlay(point);
+    }
+  }
+
+  // 二级地图展示点位
+  function add_LavelTwo_PointMap() {
+    let Leval_sizetwenty = 30;
+    let Leval_myIcontwenty = new BMap.Icon(
+      "/images/地图,图钉,标记,标点.png",
+      new BMap.Size(Leval_sizetwenty, Leval_sizetwenty),
+      {
+        anchor: new BMap.Size(Leval_sizetwenty / 1.6, Leval_sizetwenty / 2.4), // 设置图标的中心点
+        imageSize: new BMap.Size(Leval_sizetwenty, Leval_sizetwenty),
+      } // 设置图标的尺寸
+    );
+    for (let i = 0; i < coverpoints.length; i++) {
+      let pt = new BMap.Point(coverpoints[i].lng, coverpoints[i].lat);
+      let marker = new BMap.Marker(pt, {
+        icon: Leval_myIcontwenty,
+      });
+      // 在地图上添加点标记
+      LavelTwoMap.push(marker);
+      map.addOverlay(marker);
+    }
+  }
+
+  function delete_LevalTwoMap() {
+    for (let i = 0; i < LavelTwoMap.length; i++) {
+      let point = LavelTwoMap[i];
+      map.removeOverlay(point);
+    }
+  }
+  map.addEventListener("zoomend", function (e) {
+    let zoom = map.getZoom(); // 获取缩放级别
+    console.log(zoom);
+    switch (zoom) {
+      case 11:
+        add_LavelOne_coverPointMap();
+        delete_LevalTwoMap();
+        break;
+      case 13:
+        add_LavelTwo_PointMap();
+        delete_LevalMap();
+        break;
+      case 11:
+        break;
+      case 11:
+        break;
+      default:
+        break;
+    }
+  });
 
   // 监听地图点
   // function showInfo(e) {
