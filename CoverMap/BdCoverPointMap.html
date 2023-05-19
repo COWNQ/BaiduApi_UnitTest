@@ -1,170 +1,170 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
-    />
-    <link rel="stylesheet" href="../css/CoverMapPoint.css" />
-    <script
-      type="text/javascript"
-      src="http://api.map.baidu.com/api?v=2.0&ak=seoj3vwbzAoGhvZP6N31KFf1M9tAci3Q"
-    ></script>
-    <script
-      type="text/javascript"
-      src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"
-    ></script>
-    <title>百度点位热力图</title>
-  </head>
-  <body>
-    <div id="container"></div>
-    <div id="app" v-cloak>
-      <!--      搜索框-->
-      <div class="serch_border">
-        <el-input placeholder="请输入内容" v-model="input1">
-          <template slot="append">搜索</template>
-        </el-input>
-      </div>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta content="initial-scale=1.0, user-scalable=no" name="viewport"/>
+  <link
+          href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+          rel="stylesheet"
+  />
+  <link href="../css/CoverMapPoint.css" rel="stylesheet"/>
+  <script
+          src="http://api.map.baidu.com/api?v=2.0&ak=seoj3vwbzAoGhvZP6N31KFf1M9tAci3Q"
+          type="text/javascript"
+  ></script>
+  <script
+          src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"
+          type="text/javascript"
+  ></script>
+  <title>百度点位热力图</title>
+</head>
+<body>
+<div id="container"></div>
+<div v-cloak id="app">
+  <!--      搜索框-->
+  <div class="serch_border">
+    <el-input v-model="input1" placeholder="请输入内容">
+      <template slot="append">搜索</template>
+    </el-input>
+  </div>
 
-      <!--      右侧数量统计-->
-      <div class="quantity_border">
-        <div class="left_quantityname">
-          <div
-            v-for="(item, index) in quitems"
-            style="display: flex; width: 100%; height: 100%"
-          >
-            <div>
-              <el-checkbox
-                type="checkbox"
-                v-model="item.checkbox"
-                @change="checkboxClicked(index, item.checkbox)"
-              ></el-checkbox>
-            </div>
-            <div style="margin: 0 0 0px 9px; width: 100%">{{item.namelv }}</div>
-            <div style="margin: 0 0 20px 0; width: 30%">{{item.quantit }}</div>
-          </div>
+  <!--      右侧数量统计-->
+  <div class="quantity_border">
+    <div class="left_quantityname">
+      <div
+              v-for="(item, index) in quitems"
+              style="display: flex; width: 100%; height: 100%"
+      >
+        <div>
+          <el-checkbox
+                  v-model="item.checkbox"
+                  type="checkbox"
+                  @change="checkboxClicked(index, item.checkbox)"
+          ></el-checkbox>
         </div>
+        <div style="margin: 0 0 0px 9px; width: 100%">{{ item.namelv }}</div>
+        <div style="margin: 0 0 20px 0; width: 30%">{{ item.quantit }}</div>
       </div>
     </div>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-  <!-- import JavaScript -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <script>
-    new Vue({
-      el: "#app",
-      // watch: {
-      //   quitems: {
-      //     handler(newValue, oldValue) {
-      //       console.log(newValue);
-      //       this.selectedItems = newValue.filter(
-      //         (item) => item.checkbox === true
-      //       );
-      //     },
-      //   },
-      // },
-      computed: {
-        tonew() {
-          return this.quitems.filter(
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+  new Vue({
+    el: "#app",
+    // watch: {
+    //   quitems: {
+    //     handler(newValue, oldValue) {
+    //       console.log(newValue);
+    //       this.selectedItems = newValue.filter(
+    //         (item) => item.checkbox === true
+    //       );
+    //     },
+    //   },
+    // },
+    computed: {
+      tonew() {
+        return this.quitems.filter(
             (a) => a.checkbox == true && a.namelv != "全部"
-          );
-        },
+        );
       },
-      data: function () {
-        return {
-          input1: "",
-          selectedItems: [],
-          items: [
-            {
-              namelv: "1~20",
-            },
-            {
-              namelv: "21~40",
-            },
-            {
-              namelv: "41~60",
-            },
-            {
-              namelv: "60~100",
-            },
-          ],
-          quitems: [
-            {
-              checkbox: false,
-              namelv: "全部",
-              quantit: 100,
-            },
-            {
-              checkbox: false,
-              namelv: "医疗救护工程",
-              quantit: 20,
-            },
-            {
-              checkbox: false,
-              namelv: "防空专业队工程",
-              quantit: 16,
-            },
-            {
-              checkbox: false,
-              namelv: "一等人员掩蔽工程",
-              quantit: 14,
-            },
-            {
-              checkbox: false,
-              namelv: "二等人员掩蔽工程",
-              quantit: 14,
-            },
-            {
-              checkbox: false,
-              namelv: "物资库工程",
-              quantit: 10,
-            },
-            {
-              checkbox: false,
-              namelv: "其他配套工程",
-              quantit: 20,
-            },
-          ],
-        };
-      },
-      methods: {
-        // checkboxClicked(index, checked) {
-        //   if (index === 0) {
-        //     // 点击的是全选选项
-        //     this.quitems.forEach((item) => {
-        //       item.checkbox = !checked;
-        //     });
-        //   } else {
-        //     console.log(this.selectedItems.length);
-        //     if (this.selectedItems.length == 5) {
-        //       this.quitems[0].checkbox = true;
-        //     } else if (this.selectedItems.length <= 6) {
-        //       console.log(this.selectedItems);
-        //       this.quitems[0].checkbox = false;
-        //     }
-        //   }
-        // },
-        checkboxClicked(index, checked) {
-          checked = !checked;
-          if (index === 0) {
-            // 点击的是全选选项
-            this.quitems.forEach((item) => {
-              item.checkbox = !checked;
-            });
+    },
+    data: function () {
+      return {
+        input1: "",
+        selectedItems: [],
+        items: [
+          {
+            namelv: "1~20",
+          },
+          {
+            namelv: "21~40",
+          },
+          {
+            namelv: "41~60",
+          },
+          {
+            namelv: "60~100",
+          },
+        ],
+        quitems: [
+          {
+            checkbox: false,
+            namelv: "全部",
+            quantit: 100,
+          },
+          {
+            checkbox: false,
+            namelv: "医疗救护工程",
+            quantit: 20,
+          },
+          {
+            checkbox: false,
+            namelv: "防空专业队工程",
+            quantit: 16,
+          },
+          {
+            checkbox: false,
+            namelv: "一等人员掩蔽工程",
+            quantit: 14,
+          },
+          {
+            checkbox: false,
+            namelv: "二等人员掩蔽工程",
+            quantit: 14,
+          },
+          {
+            checkbox: false,
+            namelv: "物资库工程",
+            quantit: 10,
+          },
+          {
+            checkbox: false,
+            namelv: "其他配套工程",
+            quantit: 20,
+          },
+        ],
+      };
+    },
+    methods: {
+      // checkboxClicked(index, checked) {
+      //   if (index === 0) {
+      //     // 点击的是全选选项
+      //     this.quitems.forEach((item) => {
+      //       item.checkbox = !checked;
+      //     });
+      //   } else {
+      //     console.log(this.selectedItems.length);
+      //     if (this.selectedItems.length == 5) {
+      //       this.quitems[0].checkbox = true;
+      //     } else if (this.selectedItems.length <= 6) {
+      //       console.log(this.selectedItems);
+      //       this.quitems[0].checkbox = false;
+      //     }
+      //   }
+      // },
+      checkboxClicked(index, checked) {
+        checked = !checked;
+        if (index === 0) {
+          // 点击的是全选选项
+          this.quitems.forEach((item) => {
+            item.checkbox = !checked;
+          });
+        } else {
+          if (this.tonew.length >= 6) {
+            this.quitems[0].checkbox = true;
           } else {
-            if (this.tonew.length >= 6) {
-              this.quitems[0].checkbox = true;
-            } else {
-              this.quitems[0].checkbox = false;
-            }
+            this.quitems[0].checkbox = false;
           }
-        },
+        }
       },
-    });
-  </script>
+    },
+  });
+</script>
 </html>
 
 <script src="../js/CoverPoint.js"></script>
@@ -175,6 +175,7 @@
   map.enableScrollWheelZoom(); // 允许滚轮缩放
   let LavelMap = [];
   let LavelTwoMap = [];
+
   //覆盖物自定义
   function if_coversize(cover_size) {
     let size_twenty = 80;
@@ -182,28 +183,28 @@
     let size_fifty = 220;
 
     let myIcon_twenty = new BMap.Icon(
-      "/images/数字20.png",
-      new BMap.Size(size_twenty, size_twenty),
-      {
-        anchor: new BMap.Size(size_twenty / 1.6, size_twenty / 2.4), // 设置图标的中心点
-        imageSize: new BMap.Size(size_twenty, size_twenty),
-      } // 设置图标的尺寸
+        "/images/数字20.png",
+        new BMap.Size(size_twenty, size_twenty),
+        {
+          anchor: new BMap.Size(size_twenty / 1.6, size_twenty / 2.4), // 设置图标的中心点
+          imageSize: new BMap.Size(size_twenty, size_twenty),
+        } // 设置图标的尺寸
     );
     let myIcon_thirty = new BMap.Icon(
-      "/images/数字30.png",
-      new BMap.Size(size_thirty, size_thirty),
-      {
-        anchor: new BMap.Size(size_thirty / 1.6, size_thirty / 2.4), // 设置图标的中心点
-        imageSize: new BMap.Size(size_thirty, size_thirty),
-      } // 设置图标的尺寸
+        "/images/数字30.png",
+        new BMap.Size(size_thirty, size_thirty),
+        {
+          anchor: new BMap.Size(size_thirty / 1.6, size_thirty / 2.4), // 设置图标的中心点
+          imageSize: new BMap.Size(size_thirty, size_thirty),
+        } // 设置图标的尺寸
     );
     let myIcon_fifty = new BMap.Icon(
-      "/images/数字50.png",
-      new BMap.Size(size_fifty, size_fifty),
-      {
-        anchor: new BMap.Size(size_fifty / 1.6, size_fifty / 2.4), // 设置图标的中心点
-        imageSize: new BMap.Size(size_fifty, size_fifty),
-      } // 设置图标的尺寸
+        "/images/数字50.png",
+        new BMap.Size(size_fifty, size_fifty),
+        {
+          anchor: new BMap.Size(size_fifty / 1.6, size_fifty / 2.4), // 设置图标的中心点
+          imageSize: new BMap.Size(size_fifty, size_fifty),
+        } // 设置图标的尺寸
     );
     switch (cover_size) {
       case 20:
@@ -219,6 +220,7 @@
         break;
     }
   }
+
   // 地区轮廓添加
   let xionanborder = polygon;
   map.addOverlay(xionanborder);
@@ -240,10 +242,13 @@
       function goto(e) {
         window.open("Pointinfo.html");
       }
+
       marker.addEventListener("click", goto);
     }
   }
+
   add_LavelOne_coverPointMap();
+
   function delete_LevalMap() {
     for (let i = 0; i < LavelMap.length; i++) {
       let point = LavelMap[i];
@@ -255,12 +260,12 @@
   function add_LavelTwo_PointMap() {
     let Leval_sizetwenty = 30;
     let Leval_myIcontwenty = new BMap.Icon(
-      "/images/地图,图钉,标记,标点.png",
-      new BMap.Size(Leval_sizetwenty, Leval_sizetwenty),
-      {
-        anchor: new BMap.Size(Leval_sizetwenty / 1.6, Leval_sizetwenty / 2.4), // 设置图标的中心点
-        imageSize: new BMap.Size(Leval_sizetwenty, Leval_sizetwenty),
-      } // 设置图标的尺寸
+        "/images/地图,图钉,标记,标点.png",
+        new BMap.Size(Leval_sizetwenty, Leval_sizetwenty),
+        {
+          anchor: new BMap.Size(Leval_sizetwenty / 1.6, Leval_sizetwenty / 2.4), // 设置图标的中心点
+          imageSize: new BMap.Size(Leval_sizetwenty, Leval_sizetwenty),
+        } // 设置图标的尺寸
     );
     for (let i = 0; i < coverpoints.length; i++) {
       let pt = new BMap.Point(coverpoints[i].lng, coverpoints[i].lat);
@@ -279,6 +284,7 @@
       map.removeOverlay(point);
     }
   }
+
   map.addEventListener("zoomend", function (e) {
     let zoom = map.getZoom(); // 获取缩放级别
     console.log(zoom);
@@ -286,10 +292,12 @@
       case 11:
         add_LavelOne_coverPointMap();
         delete_LevalTwoMap();
+        map.addOverlay(xionanborder);
         break;
       case 13:
         add_LavelTwo_PointMap();
         delete_LevalMap();
+        map.removeOverlay(xionanborder);
         break;
       case 11:
         break;
