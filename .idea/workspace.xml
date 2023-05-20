@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f8a6d1de-1ece-4499-8155-994d03e417cd" name="更改" comment="监听滑轮滚动">
+      <change afterPath="$PROJECT_DIR$/images/三级图片/01总平面图-裁切.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/三级图片/02地块人防车位-裁切.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/三级图片/03F地块人防车位-裁切.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/地图倾斜.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoverMap/BdCoverPointMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/CoverMap/BdCoverPointMap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoverMap/Pointinfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/CoverMapPoint.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/CoverMapPoint.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/CoverPoint.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/CoverPoint.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/BdHeatingPointMap.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/CoverMap/BdCoverPointMap.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/CoverMap/Pointinfo.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/js/point.js" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2Py3ee70KK4Y9F4tn3W9CTmro7m" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cown/Desktop/开箱即用vue/fantastic-admin&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cown\Desktop\地图\images\三级车位" />
+    </key>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="f8a6d1de-1ece-4499-8155-994d03e417cd" name="更改" comment="" />
+      <created>1684415595571</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684415595571</updated>
+      <workItem from="1684415598032" duration="637000" />
+      <workItem from="1684416281629" duration="81000" />
+      <workItem from="1684416372246" duration="894000" />
+      <workItem from="1684417292352" duration="383000" />
+    </task>
+    <task id="LOCAL-00001" summary="修改README.md文件">
+      <created>1684416915334</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684416915335</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/develop" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改README.md文件" />
+    <MESSAGE value="监听滑轮滚动，控制覆盖物是否显示" />
+    <MESSAGE value="监听滑轮滚动" />
+    <option name="LAST_COMMIT_MESSAGE" value="监听滑轮滚动" />
+  </component>
+</project>
